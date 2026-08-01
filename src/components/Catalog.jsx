@@ -1,4 +1,4 @@
-import "./catalog.css";
+import "./Catalog.css";
 
 function Catalog(){
         
