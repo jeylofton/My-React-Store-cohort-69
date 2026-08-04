@@ -1,6 +1,5 @@
 import "./QuantityPicker.css";
 import { useState } from "react";
-import React, { Component } from 'react';
 
 
 function QuantityPicker(){

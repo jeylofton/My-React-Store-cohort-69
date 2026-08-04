@@ -1,19 +1,19 @@
 import "./Products.css";
 import QuantityPicker from "./QuantityPicker";
 
-function Products(){
+function Product({ product }){
         
     return(
         <div className="product">
-            <img src="https://picsum.photos/220/300" alt="Product"/>
-            <h5>Title</h5>
+            <img src={product.image} alt={product.title}/>
+            <h5>{product.title}</h5>
+            <p>{product.category}</p>
             <div className="Prices">
-                <label> Price </label>
-                <label> Total </label>
+                <label>Price: ${product.price.toFixed(2)}</label>
             </div>
             <QuantityPicker></QuantityPicker>
         </div>
     );
 }
 
-export default Products;
+export default Product;

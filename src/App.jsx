@@ -2,8 +2,6 @@ import "./App.css";
 import Catalog from "./pages/Catalog";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import Products from "./components/Products";
-import QuantityPicker from "./components/QuantityPicker";
 
 
 function App() {
