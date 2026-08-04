@@ -1,15 +1,19 @@
 import "./Products.css";
 import QuantityPicker from "./QuantityPicker";
 
-function Product({ product }){
+function Product(props){
         
     return(
         <div className="product">
-            <img src={product.image} alt={product.title}/>
-            <h5>{product.title}</h5>
-            <p>{product.category}</p>
+            <img
+                className="product-image"
+                src={`/image/${props.data.image}`}
+                alt={props.data.title}
+            />
+            <h5>{props.data.title}</h5>
+            <p>{props.data.category}</p>
             <div className="Prices">
-                <label>Price: ${product.price.toFixed(2)}</label>
+                <label>Price: ${props.data.price.toFixed(2)}</label>
             </div>
             <QuantityPicker></QuantityPicker>
         </div>

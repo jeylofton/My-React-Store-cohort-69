@@ -14,7 +14,7 @@ function Catalog(){
         <div>
         <h1>Check out our {products.length} new products</h1>
         {products.map(prod => (
-            <Product key={prod._id} product={prod} />
+            <Product key={prod._id} data={prod} />
         ))}
         </div>
     );
