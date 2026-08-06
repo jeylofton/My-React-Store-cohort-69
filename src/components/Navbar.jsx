@@ -3,7 +3,9 @@ import "./Navbar.css";
 function Navbar(){
         
     return(
-        <h1>My Online Store</h1>
+        <div className="navbar">
+            <h1>My Online Store</h1>
+        </div>
     );
 }
 

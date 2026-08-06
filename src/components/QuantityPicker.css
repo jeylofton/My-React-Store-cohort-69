@@ -1,0 +1,40 @@
+.btn-minus,
+.btn-plus {
+    font-family: var(--mono);
+    font-size: 18px;
+    line-height: 1;
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--text-h);
+    background: var(--social-bg);
+    border: 1px solid var(--border);
+    transition: border-color 0.3s, background 0.3s;
+}
+
+.btn-minus:hover:not(:disabled),
+.btn-plus:hover:not(:disabled) {
+    border-color: var(--accent-border);
+    background: var(--accent-bg);
+}
+
+.btn-minus:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.btn-minus:focus-visible,
+.btn-plus:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+.label-qty {
+    font-family: var(--mono);
+    font-size: 17px;
+    color: var(--text-h);
+    display: inline-block;
+    min-width: 40px;
+    text-align: center;
+}

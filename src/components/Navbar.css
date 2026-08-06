@@ -1,0 +1,27 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 32px;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 10;
+}
+
+.navbar h1 {
+    font-size: 28px;
+    letter-spacing: -0.5px;
+    margin: 0;
+}
+
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 16px 20px;
+    }
+
+    .navbar h1 {
+        font-size: 22px;
+    }
+}

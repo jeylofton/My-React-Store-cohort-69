@@ -1,0 +1,30 @@
+.catalog {
+    flex-grow: 1;
+    padding: 0 32px 48px;
+}
+
+.catalog h1 {
+    font-size: 40px;
+    letter-spacing: -1px;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 24px;
+}
+
+@media (max-width: 1024px) {
+    .catalog {
+        padding: 0 20px 32px;
+    }
+
+    .catalog h1 {
+        font-size: 28px;
+    }
+
+    .catalog-grid {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        gap: 16px;
+    }
+}

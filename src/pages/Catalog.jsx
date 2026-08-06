@@ -11,11 +11,13 @@ function Catalog(){
     });
         
     return(
-        <div>
+        <div className="catalog">
         <h1>Check out our {products.length} new products</h1>
-        {products.map(prod => (
-            <Product key={prod._id} data={prod} />
-        ))}
+        <div className="catalog-grid">
+            {products.map(prod => (
+                <Product key={prod._id} data={prod} />
+            ))}
+        </div>
         </div>
     );
 }

@@ -10,18 +10,32 @@ const catalog =[
     "_id":"1" //Unigue
 },
 {
-    "title":"Banana",
-    "category":"Fruit",
-    "price":12.99,
+    "title":"Dark Chocolate",
+    "category":"Snacks",
+    "price":8.49,
     "image":"choco.png",
     "_id":"2" //Unigue
 },
 {
-    "title":"Coconut",
-    "category":"Fruit",
-    "price":12.99,
+    "title":"Coffee Beans",
+    "category":"Beverages",
+    "price":15.75,
     "image":"coffe.png",
     "_id":"3" //Unigue
+},
+{
+    "title":"Almond Milk",
+    "category":"Dairy",
+    "price":5.25,
+    "image":"milk.png",
+    "_id":"4" //Unigue
+},
+{
+    "title":"Organic Hoodie",
+    "category":"Apparel",
+    "price":42.00,
+    "image":"hoodie.png",
+    "_id":"5" //Unigue
 },
 ]
 
