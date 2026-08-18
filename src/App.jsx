@@ -1,9 +1,13 @@
-import { BrowserRouter, Route, Router, Routes } from "react-router";
+import { BrowserRouter, Route, Routes } from "react-router";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import "./App.css";
+import Home from "./pages/Home"
+import About from "./pages/About"
 import Catalog from "./pages/Catalog";
+import NotFound from "./pages/NotFound";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-
 
 function App() {
   return (
@@ -12,8 +16,11 @@ function App() {
       <Navbar></Navbar>
       
       <Routes>
-        <Route path="/" element={<h1>Welcome to my Homepage</h1>} />
-      <Route path="/about" element={<h1>About Page</h1>} />
+        <Route path="/" element={<Home/>} />
+        <Route path="/home" element={<Home/>} />
+        <Route path="/about" element={<About/>} />
+        <Route path="/catalog" element={<Catalog/>}/>
+        <Route path="*" element={<NotFound/>} />
       </Routes>
   
       <Footer></Footer>
