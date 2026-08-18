@@ -4,7 +4,7 @@ function Navbar(){
         
     return(
         <div className="navbar">
-            <h1>My Online Store</h1>
+            <p>-----------NAVBAR-----------</p>
         </div>
     );
 }
