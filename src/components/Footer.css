@@ -1,16 +1,13 @@
-/* Plain footer. Colors are set explicitly rather than with the theme
-   variables, because Bootstrap keeps the page background white and the
-   themed values were coming out unreadable on top of it. */
-
 .footer {
     padding: 20px 32px;
     text-align: center;
+    border-top: 1px solid var(--border);
 }
 
 .footer p {
     margin: 0;
     font-size: 15px;
-    color: #212529;
+    color: var(--text);
 }
 
 @media (max-width: 1024px) {

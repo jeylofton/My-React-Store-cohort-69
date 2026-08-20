@@ -3,9 +3,9 @@ import "./Footer.css";
 function Footer(){
 
     return(
-        <div className="footer">
-            <p>-----------FOOTER-----------</p>
-        </div>
+        <footer className="bg-primary py-2">
+            <p className="mb-0">© 2026 My Online Store. All Rights Reserved.</p>
+        </footer>
     );
 }
 

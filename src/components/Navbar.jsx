@@ -5,7 +5,7 @@ import "./Navbar.css";
 function Navbar(){
 
     return(
-        <nav className="navbar navbar-expand bg-dark" data-bs-theme="dark">
+        <nav className="navbar navbar-expand bg-primary" data-bs-theme="dark">
             <div className="container-fluid">
 
                 <Link className="navbar-brand" to="/">Online Store</Link>
@@ -23,6 +23,9 @@ function Navbar(){
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/contact">Contact</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/admin">Admin</Link>
                         </li>
                     </ul>
                 </div>
