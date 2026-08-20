@@ -82,6 +82,26 @@ body {
     color: var(--store-white);
 }
 
+/* index.css caps #root at 1126px and draws a hairline down each side.
+   The store uses the full window instead, so drop both. */
+#root {
+    width: 100%;
+    max-width: none;
+    border-inline: none;
+}
+
+/* Every page renders inside <main>, so one rule keeps page content off
+   the window edges. The navbar and footer stay full-bleed. */
+main {
+    padding-inline: 32px;
+}
+
+@media (max-width: 1024px) {
+    main {
+        padding-inline: 20px;
+    }
+}
+
 /* ---------------- navbar ---------------- */
 
 /* The navbar uses .bg-primary, so it picks up --bs-primary (purple).
