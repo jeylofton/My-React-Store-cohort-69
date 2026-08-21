@@ -5,6 +5,33 @@ const [couponCode, setCouponCode] = useState("");
 const [CouponDiscount, setCouponDiscount] = useState(1);
 const [coupons, setCoupons] = useState([]);
 
+const [productTitle, setProductTitle] = useState("");
+const [productCategory, setProductCategory] = useState("");
+const [productImage, setProductImage] = useState("");
+const [productPrice, setProductPrice] = useState(0);
+const [products, setProducts] = useState([]);
+
+function saveProduct(){
+    console.log(productTitle);
+    console.log(productCategory);
+    console.log(productImage);
+    console.log(productPrice);
+
+    const newProduct = {
+        title: productTitle,
+        category: productCategory,
+        image: productImage,
+        price: productPrice,
+    }
+
+    setProducts([...products, newProduct])
+
+    setProductTitle("");
+    setProductCategory("");
+    setProductImage("");
+    setProductPrice(0);
+}
+
 function saveCoupon(){
     console.log(couponCode);
     console.log(CouponDiscount);
@@ -26,7 +53,50 @@ function saveCoupon(){
 
             <div className="d-flex gap-4">
                 <section className="w-50">
+                    <h2>Add Products</h2>
 
+                    <div className="card">
+                        <div className="card-body">
+                            <div className="d-flex flex-column mb-3">
+                                <label className="form-label text-start">Title</label>
+                                <input className="form-control" type="text" value={productTitle} onChange={(e)=>setProductTitle(e.target.value)} />
+                            </div>
+                            <div className="d-flex flex-column mb-3">
+                                <label className="form-label text-start">Category</label>
+                                <input className="form-control" type="text" value={productCategory} onChange={(e)=>setProductCategory(e.target.value)} />
+                            </div>
+                            <div className="d-flex flex-column mb-3">
+                                <label className="form-label text-start">Image (URL)</label>
+                                <input className="form-control" type="text" placeholder="https://www.image.com/category/1" value={productImage} onChange={(e)=>setProductImage(e.target.value)} />
+                            </div>
+                            <div className="d-flex flex-column mb-3">
+                                <label className="form-label text-start">Price</label>
+                                <input className="form-control" type="number" value={productPrice} onChange={(e)=>setProductPrice(e.target.value)} />
+                            </div>
+                            <div>
+                                <button className="btn btn-primary m-1" onClick={saveProduct}>Save Product</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>Products List</h3>
+
+                        {
+                            products.length == 0
+                            ? <p>There are no products</p>
+                            :<ul className="list-group">
+                                {products.map((product, index)=> (
+                                    <li className="list-group-item text-start d-flex align-items-center gap-3" key={index}>
+                                        <img src={product.image} alt={product.title} width="48" height="48" style={{objectFit:"cover"}} />
+                                        <span className="flex-grow-1">{product.title}</span>
+                                        <span>{product.category}</span>
+                                        <span>${product.price}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        }
+                    </div>
                 </section>
                 <section className="w-50">
                     <h2>Add Coupons</h2>
