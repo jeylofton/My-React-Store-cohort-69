@@ -1,7 +1,7 @@
 .catalog {
     flex-grow: 1;
-    /* side padding comes from main in theme.css */
-    padding: 0 0 48px;
+    /* side and bottom padding come from main in theme.css */
+    padding: 0;
 }
 
 .catalog h1 {
@@ -16,10 +16,6 @@
 }
 
 @media (max-width: 1024px) {
-    .catalog {
-        padding: 0 0 32px;
-    }
-
     .catalog h1 {
         font-size: 28px;
     }

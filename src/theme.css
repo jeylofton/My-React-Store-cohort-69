@@ -94,11 +94,13 @@ body {
    the window edges. The navbar and footer stay full-bleed. */
 main {
     padding-inline: 32px;
+    padding-bottom: 48px;
 }
 
 @media (max-width: 1024px) {
     main {
         padding-inline: 20px;
+        padding-bottom: 32px;
     }
 }
 

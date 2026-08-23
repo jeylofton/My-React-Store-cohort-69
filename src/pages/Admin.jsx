@@ -85,16 +85,18 @@ function saveCoupon(){
                         {
                             products.length == 0
                             ? <p>There are no products</p>
-                            :<ul className="list-group">
+                            :<div className="d-flex flex-wrap gap-3">
                                 {products.map((product, index)=> (
-                                    <li className="list-group-item text-start d-flex align-items-center gap-3" key={index}>
-                                        <img src={product.image} alt={product.title} width="48" height="48" style={{objectFit:"cover"}} />
-                                        <span className="flex-grow-1">{product.title}</span>
-                                        <span>{product.category}</span>
-                                        <span>${product.price}</span>
-                                    </li>
+                                    <div className="card" style={{width: "calc(50% - 0.5rem)"}} key={index}>
+                                        <img src={product.image} className="card-img-top" alt={product.title} />
+                                        <div className="card-body text-start">
+                                            <h5 className="card-title">{product.title}</h5>
+                                            <p className="card-text">{product.category}</p>
+                                            <p className="card-text">${product.price}</p>
+                                        </div>
+                                    </div>
                                 ))}
-                            </ul>
+                            </div>
                         }
                     </div>
                 </section>
