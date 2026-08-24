@@ -1,0 +1,65 @@
+/* Cart page. Colors all come from the theme variables so this page
+   follows the same black / purple / white palette as the rest of the site. */
+
+.cart-image {
+    width: 84px;
+    height: 84px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: var(--code-bg);
+    flex-shrink: 0;
+}
+
+.cart-category {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text);
+    margin: 0;
+}
+
+/* price chip, matching the catalog cards */
+.cart-cell label {
+    font-family: var(--mono);
+    font-size: 16px;
+    color: var(--accent);
+    background: var(--accent-bg);
+    border-radius: 6px;
+    padding: 4px 10px;
+    white-space: nowrap;
+}
+
+.cart-line-total label {
+    font-family: var(--mono);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-h);
+    white-space: nowrap;
+}
+
+.cart-grand-total {
+    font-family: var(--mono);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-h);
+}
+
+.cart-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+@media (max-width: 1024px) {
+    /* stack each row so nothing gets squeezed on a phone */
+    .cart .card-body {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .cart-image {
+        width: 64px;
+        height: 64px;
+    }
+}

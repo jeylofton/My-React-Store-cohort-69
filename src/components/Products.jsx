@@ -1,14 +1,22 @@
 import "./Products.css";
 import QuantityPicker from "./QuantityPicker";
 import { useState } from "react";
+import useStore from "../store/useStore";
 
 function Product(props){
 
     const [quantity, setQuantity] = useState(1);
 
+    //pull just the addToCart action out of the global store
+    const addToCart = useStore((state) => state.addToCart);
+
     //runs every time the QuantityPicker changes the quantity
     function handleQuantityChange(newQuantity){
         setQuantity(newQuantity);
+    }
+
+    function handleAddToCart(){
+        addToCart(props.data, quantity);
     }
 
     const total = props.data.price * quantity;
@@ -29,6 +37,9 @@ function Product(props){
             <div className="Total">
                 <label>Total: ${total.toFixed(2)}</label>
             </div>
+            <button className="btn btn-primary mt-2" onClick={handleAddToCart}>
+                Add to Cart
+            </button>
         </div>
     );
 }

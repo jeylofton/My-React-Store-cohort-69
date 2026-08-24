@@ -11,8 +11,11 @@
 
 .catalog-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    /* auto-fit collapses the empty columns and the max stops the cards
+       stretching, so whatever is left can be centered as a group */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 260px));
     gap: 24px;
+    justify-content: center;
 }
 
 @media (max-width: 1024px) {
@@ -21,7 +24,7 @@
     }
 
     .catalog-grid {
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(160px, 200px));
         gap: 16px;
     }
 }
