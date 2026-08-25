@@ -20,9 +20,9 @@ function Cart(){
             {
                 cart.length == 0
                 ? <div className="cart-empty">
-                    <p>Your cart is empty</p>
+                    <p>Ready to Complete the Purchase</p>
                     <Link className="btn btn-primary" to="/catalog">Browse the catalog</Link>
-                  </div>
+                </div>
                 : <div className="d-flex flex-column gap-3">
 
                     {cart.map(item => (
@@ -78,7 +78,7 @@ function Cart(){
                         </div>
                     </div>
 
-                  </div>
+                </div>
             }
         </div>
     );

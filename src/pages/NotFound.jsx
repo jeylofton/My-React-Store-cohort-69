@@ -1,4 +1,5 @@
 import "./NotFound.css";
+import { IconMoodPuzzled } from '@tabler/icons-react';
 
 /*
  * Static visual recreation of the GitHub 404 page.
@@ -122,6 +123,7 @@ function NotFound(){
 
                 {/* 404 + speech bubble sit on top of the illustration */}
                 <div className="nf-hero-text">
+                    <IconMoodPuzzled stroke={2} />
                     <p className="nf-404">404</p>
                     <div className="nf-bubble">
                         <p>This is not the<br />web page you are<br />looking for.</p>

@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { useState } from "react";
+import { IconShoppingCartDollar } from "@tabler/icons-react"
 
 import "./Navbar.css";
 import useStore from "../store/useStore";
@@ -45,8 +46,14 @@ function Navbar(){
                     </button>
 
                     <div className="d-flex align-items-center gap-3">
-                        <Link className="nav-link" to="/cart" onClick={closeMenu}>
-                            Cart: {cartCount}
+                        <Link
+                            className="nav-link d-flex align-items-center gap-1"
+                            to="/cart"
+                            onClick={closeMenu}
+                            aria-label={`Cart, ${cartCount} items`}
+                        >
+                            <IconShoppingCartDollar stroke={2} size={30} />
+                            {cartCount}
                         </Link>
                         <span className="navbar-text d-none d-lg-inline">
                             Hello, {userName}
