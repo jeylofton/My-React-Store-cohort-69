@@ -25,6 +25,16 @@ function Cart(){
                 </div>
                 : <div className="d-flex flex-column gap-3">
 
+                    {/* column labels - hidden on mobile, where the rows stack */}
+                    <div className="cart-head d-none d-lg-flex align-items-center gap-3">
+                        <span className="cart-col-image"></span>
+                        <span className="cart-col-item">Item</span>
+                        <span className="cart-col-price">Price per item</span>
+                        <span className="cart-col-qty">Quantity</span>
+                        <span className="cart-col-total">Total cost</span>
+                        <span className="cart-col-action"></span>
+                    </div>
+
                     {cart.map(item => (
                         <div className="card" key={item._id}>
                             <div className="card-body d-flex align-items-center gap-3 text-start">
@@ -35,16 +45,19 @@ function Cart(){
                                     alt={item.title}
                                 />
 
-                                <div className="flex-grow-1">
+                                <div className="cart-col-item">
                                     <h5 className="card-title mb-1">{item.title}</h5>
                                     <p className="card-text cart-category">{item.category}</p>
                                 </div>
 
-                                <div className="cart-cell">
-                                    <label>Price: ${item.price.toFixed(2)}</label>
+                                <div className="cart-col-price cart-cell">
+                                    <label>
+                                        <span className="d-lg-none">Price: </span>
+                                        ${item.price.toFixed(2)}
+                                    </label>
                                 </div>
 
-                                <div className="d-flex align-items-center">
+                                <div className="cart-col-qty d-flex align-items-center justify-content-center">
                                     <button
                                         className="btn-minus"
                                         onClick={() => updateQuantity(item._id, item.quantity - 1)}
@@ -57,14 +70,19 @@ function Cart(){
                                     > + </button>
                                 </div>
 
-                                <div className="cart-line-total">
-                                    <label>Total: ${(item.price * item.quantity).toFixed(2)}</label>
+                                <div className="cart-col-total cart-line-total">
+                                    <label>
+                                        <span className="d-lg-none">Total: </span>
+                                        ${(item.price * item.quantity).toFixed(2)}
+                                    </label>
                                 </div>
 
-                                <button
-                                    className="btn btn-outline-primary"
-                                    onClick={() => removeFromCart(item._id)}
-                                >Remove</button>
+                                <div className="cart-col-action">
+                                    <button
+                                        className="btn btn-outline-primary"
+                                        onClick={() => removeFromCart(item._id)}
+                                    >Remove</button>
+                                </div>
 
                             </div>
                         </div>

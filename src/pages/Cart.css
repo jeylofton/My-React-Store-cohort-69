@@ -1,6 +1,50 @@
 /* Cart page. Colors all come from the theme variables so this page
    follows the same black / purple / white palette as the rest of the site. */
 
+/* ---- column widths ----
+   The same classes go on the header row and on every card row, so the
+   labels line up over their values. Fixed widths (instead of letting the
+   name take all the space) are what spreads the columns across the row. */
+
+.cart-col-image {
+    width: 84px;
+    flex-shrink: 0;
+}
+
+.cart-col-item {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.cart-col-price,
+.cart-col-qty,
+.cart-col-total {
+    width: 150px;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.cart-col-action {
+    width: 120px;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+/* the header sits outside a card, so pad it to match the card body */
+.cart-head {
+    padding-inline: calc(1rem + 1px);
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text);
+}
+
+/* the item column is wide, so left-align its label to sit over the
+   product names instead of floating in the middle of the column */
+.cart-head .cart-col-item {
+    text-align: left;
+}
+
 .cart-image {
     width: 84px;
     height: 84px;
@@ -61,5 +105,13 @@
     .cart-image {
         width: 64px;
         height: 64px;
+    }
+
+    /* drop the fixed column widths so the cells can wrap naturally */
+    .cart-col-price,
+    .cart-col-qty,
+    .cart-col-total,
+    .cart-col-action {
+        width: auto;
     }
 }
