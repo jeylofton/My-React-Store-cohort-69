@@ -1,0 +1,201 @@
+/* ============================================================
+Store theme - black, purple and white.
+
+This file is imported LAST in App.jsx so it wins over both
+Bootstrap and index.css.
+
+It sets two sets of variables:
+    1. Bootstrap's own --bs-* variables, so every Bootstrap
+        component (navbar, buttons, cards, forms...) follows the
+        palette automatically.
+    2. The --accent / --bg / --text variables that the store
+        components already use, so both systems agree.
+
+The selector list includes [data-bs-theme] so the values also
+apply inside elements that opt into a Bootstrap theme scope,
+such as the navbar.
+   ============================================================ */
+
+:root,
+[data-bs-theme] {
+
+    /* ---- the three brand colors ---- */
+    --store-black: #000000;
+    --store-purple: #a855f7;
+    --store-white: #ffffff;
+
+    /* supporting shades built from those three */
+    --store-surface: #121016;      /* lifted black, for cards and bars */
+    --store-purple-light: #c084fc; /* hover / highlight */
+    --store-purple-dark: #7e22ce;  /* pressed / borders */
+    --store-muted: #b9b3c4;        /* white dimmed, for secondary text */
+    --store-line: #2a2233;         /* hairline borders */
+
+    /* ---- Bootstrap core ---- */
+    --bs-body-bg: var(--store-black);
+    --bs-body-color: var(--store-white);
+    --bs-emphasis-color: var(--store-white);
+    --bs-secondary-color: var(--store-muted);
+    --bs-secondary-bg: var(--store-surface);
+    --bs-tertiary-bg: var(--store-surface);
+    --bs-border-color: var(--store-line);
+    --bs-heading-color: var(--store-white);
+
+    /* make "dark" mean black, so .bg-dark is truly black */
+    --bs-dark-rgb: 10, 10, 10;
+
+    /* ---- Bootstrap purple as the primary color ---- */
+    --bs-primary: var(--store-purple);
+    --bs-primary-rgb: 168, 85, 247;
+    --bs-primary-text-emphasis: var(--store-purple-light);
+    --bs-primary-bg-subtle: rgba(168, 85, 247, 0.15);
+    --bs-primary-border-subtle: rgba(168, 85, 247, 0.5);
+
+    --bs-link-color: var(--store-purple-light);
+    --bs-link-color-rgb: 192, 132, 252;
+    --bs-link-hover-color: var(--store-white);
+    --bs-link-hover-color-rgb: 255, 255, 255;
+
+    /* ---- the store's own variables, kept in sync ---- */
+    --bg: var(--store-surface);
+    --text: var(--store-muted);
+    --text-h: var(--store-white);
+    --border: var(--store-line);
+    --code-bg: #1a1520;
+    --accent: var(--store-purple-light);
+    --accent-bg: rgba(192, 132, 252, 0.15);
+    --accent-border: rgba(192, 132, 252, 0.5);
+    --social-bg: rgba(255, 255, 255, 0.04);
+    --shadow:
+        rgba(0, 0, 0, 0.6) 0 10px 15px -3px, rgba(0, 0, 0, 0.4) 0 4px 6px -2px;
+}
+
+/* index.css declares color/background on :root, so restate them here */
+:root {
+    color: var(--store-white);
+    background: var(--store-black);
+    color-scheme: dark;
+}
+
+body {
+    background: var(--store-black);
+    color: var(--store-white);
+}
+
+/* index.css caps #root at 1126px and draws a hairline down each side.
+   The store uses the full window instead, so drop both. */
+#root {
+    width: 100%;
+    max-width: none;
+    border-inline: none;
+}
+
+/* Every page renders inside <main>, so one rule keeps page content off
+   the window edges. The navbar and footer stay full-bleed. */
+main {
+    padding-inline: 32px;
+    padding-bottom: 48px;
+}
+
+@media (max-width: 1024px) {
+    main {
+        padding-inline: 20px;
+        padding-bottom: 32px;
+    }
+}
+
+/* ---------------- navbar ---------------- */
+
+/* The navbar uses .bg-primary, so it picks up --bs-primary (purple).
+Links sit on purple, so they rest slightly dimmed and go pure white
+   on hover. */
+
+.navbar.bg-primary {
+    border-bottom: 1px solid var(--store-purple-dark);
+}
+
+.navbar .navbar-brand {
+    color: var(--store-white);
+    font-weight: 600;
+}
+
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+    color: var(--store-white);
+}
+
+.navbar .nav-link {
+    color: rgba(255, 255, 255, 0.78);
+    border-radius: 6px;
+    transition: color 0.2s, background 0.2s;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus {
+    color: var(--store-white);
+    background: rgba(255, 255, 255, 0.16);
+}
+
+/* ---------------- buttons ---------------- */
+
+.btn-primary {
+    --bs-btn-bg: var(--store-purple);
+    --bs-btn-border-color: var(--store-purple);
+    --bs-btn-color: var(--store-white);
+    --bs-btn-hover-bg: var(--store-purple-light);
+    --bs-btn-hover-border-color: var(--store-purple-light);
+    --bs-btn-hover-color: var(--store-black);
+    --bs-btn-active-bg: var(--store-purple-dark);
+    --bs-btn-active-border-color: var(--store-purple-dark);
+    --bs-btn-active-color: var(--store-white);
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--store-purple-light);
+    --bs-btn-border-color: var(--store-purple);
+    --bs-btn-hover-bg: var(--store-purple);
+    --bs-btn-hover-border-color: var(--store-purple);
+    --bs-btn-hover-color: var(--store-white);
+}
+
+/* ---------------- cards ---------------- */
+
+/* The global --bs-border-color is a dark hairline, which disappears on the
+   black page. Cards get an explicit white line instead. */
+
+.card {
+    --bs-card-border-color: var(--store-white);
+    --bs-card-border-width: 1px;
+    --bs-card-bg: var(--store-surface);
+    --bs-card-color: var(--store-white);
+    --bs-card-cap-bg: rgba(255, 255, 255, 0.06);
+    --bs-card-cap-color: var(--store-white);
+}
+
+/* dividers inside a card follow the same white line */
+.card .card-header,
+.card .card-footer {
+    border-color: var(--store-white);
+}
+
+/* ---------------- simple pages ---------------- */
+
+/* Home / About / Contact are plain markup, so give them room
+   and make sure their text reads on the black background. */
+.page {
+    padding: 48px 24px 64px;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--store-white);
+}
+
+a {
+    color: var(--store-purple-light);
+}
+
+a:hover {
+    color: var(--store-white);
+}

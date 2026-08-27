@@ -1,0 +1,16 @@
+/* Layout only - all navbar colors come from Bootstrap and theme.css.
+   Careful adding rules for ".navbar" here: that is Bootstrap's own class
+   name, so anything set here overrides the Bootstrap look. */
+
+/* On mobile the hamburger + cart row spans the full width, which puts the
+   hamburger hard left and the cart hard right. Bootstrap has no responsive
+   width utility (there is no "w-lg-auto"), so it is done here. */
+.navbar-controls {
+    width: 100%;
+}
+
+@media (min-width: 992px) {
+    .navbar-controls {
+        width: auto;
+    }
+}
